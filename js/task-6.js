@@ -21,22 +21,19 @@ input.value = "";
 
 function destroyBoxes() {
   box.innerHTML = "";
-  sizes = 10;
+  sizes = 30;
 }
 
 
 
 function createSquare (amount) {
   destroyBoxes();
+  let boxesHtml = '';
   for (let i = 0; i < amount; i++) {
-    const square = document.createElement("div");
-    square.style.width = `${sizes}px`;
-    square.style.height = `${sizes}px`;
-    square.style.backgroundColor = getRandomHexColor();
-    
-    box.append(square);
+    boxesHtml += `<div style="width: ${sizes}px; height: ${sizes}px; background-color: ${getRandomHexColor()};"></div>`;
     sizes += 10;
   }
+  box.innerHTML = boxesHtml;
 }
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
